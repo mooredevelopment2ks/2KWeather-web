@@ -28,6 +28,7 @@ export default function Home() {
   return (
     <div>
       <div className="leftContainer">
+        {/* Get rid of this h1 when the lat and long are used in API successfully */}
         <h1>
           {location.lat}, {location.long}
         </h1>
