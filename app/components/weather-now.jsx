@@ -18,3 +18,6 @@ export default function WeatherNow() {
 // 4. Date and Time format: DD/MM - Day - Current Time
 // 5. Sunrise is the time the sun rises - From weather API
 // 6. Sunset is the time the sun sets - From weather API
+
+//on page load get the current location
+//use current location to make an API call to get the weather information
