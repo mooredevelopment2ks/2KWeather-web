@@ -5,7 +5,7 @@ import WeatherCard from "./components/weather-card";
 import WeatherImage from "./components/weather-image";
 
 export default function Home() {
-  const [location, setLocation] = useState({ lat: null, long: null });
+  const [location, setLocation] = useState({ lat: null, lon: null });
 
   useEffect(() => {
     if (navigator.geolocation) {
@@ -13,7 +13,7 @@ export default function Home() {
         (position) => {
           setLocation({
             lat: position.coords.latitude,
-            long: position.coords.longitude,
+            lon: position.coords.longitude,
           });
         },
         (error) => {
@@ -30,13 +30,13 @@ export default function Home() {
       <div className="leftContainer">
         {/* Get rid of this h1 when the lat and long are used in API successfully */}
         <h1>
-          {location.lat}, {location.long}
+          {location.lat}, {location.lon}
         </h1>
-        <WeatherNow />
-        <WeatherCard />
+        <WeatherNow location={location} />
+        <WeatherCard location={location} />
       </div>
       <div className="rightContainer">
-        <WeatherImage />
+        <WeatherImage location={location} />
       </div>
     </div>
   );
