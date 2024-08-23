@@ -1,0 +1,9 @@
+.card{
+    border: 1px solid black;
+}
+.hourlyWeather{
+    border: 1px solid blue;
+}
+.weeklyWeather{
+    border: 1px solid red;
+}

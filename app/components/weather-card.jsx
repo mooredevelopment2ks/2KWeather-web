@@ -1,7 +1,11 @@
+import React, { useState, useEffect } from "react";
+import { fetchCurrentWeatherData } from "@/lib/weatherData";
+import css from "./weather-card.module.css";
+
 export default function WeatherCard() {
   return (
-    <div className="card">
-      <div className="hourlyWeather">
+    <div className={css.card}>
+      <div className={css.hourlyWeather}>
         <p>Weather icon</p>
         <p>Time</p>
         <p>Temperature</p>
@@ -12,7 +16,7 @@ export default function WeatherCard() {
                     - Temperature
         */}
       </div>
-      <div className="weeklyWeather">
+      <div className={css.weeklyWeather}>
         <p>
           Day - Humidity - Weather icon day - Weather icon night - High Temp -
           Low Temp

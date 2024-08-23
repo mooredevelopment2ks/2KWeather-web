@@ -8,22 +8,18 @@ const options = {
 
 const getWeatherUrl = (lat, lon, apiKey) => {
   //could put env variable API key here
-  return `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`;
-};
-
-const getDailyWeatherUrl = (lat, lon, apiKey) => {
-  return `api.openweathermap.org/data/2.5/forecast/daily?lat=${lat}&lon=${lon}&cnt=5&appid=${apiKey}`;
+  return `http://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${lat},${lon}&days=3`;
 };
 
 export async function GET(request) {
   //but we put it here intsead
   const API_KEY_C = process.env.CURRENT_WEATHER_DATA;
   const { searchParams } = new URL(request.url);
-  const url = getWeatherUrl(
-    searchParams.get("lat"),
-    searchParams.get("lon"),
-    API_KEY_C
-  );
+
+  const lat = searchParams.get("lat");
+  const lon = searchParams.get("lon");
+  const url = getWeatherUrl(lat, lon, API_KEY_C);
+
   try {
     const apiResponse = await fetch(url, options);
     const data = await apiResponse.json();

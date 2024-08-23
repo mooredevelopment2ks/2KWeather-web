@@ -22,28 +22,58 @@ export default function WeatherNow({ location }) {
     return <h1>Loading...</h1>;
   }
 
-  const { weather, main, sys } = currentWeatherData;
+  const { current, location: loc, forecast } = currentWeatherData;
 
-  if (!weather || !main || !sys) {
+  if (!current || !loc) {
     console.error("Incomplete data:", currentWeatherData); // Log incomplete data
     return <h1>Error: Incomplete data</h1>;
   }
 
   //Converting temp to Celcius
-  const temperature = (main.temp - 273.15).toFixed(1);
-  const sunrise = new Date(sys.sunrise * 1000).toLocaleTimeString();
-  const sunset = new Date(sys.sunset * 1000).toLocaleTimeString();
+  const temperature = current.temp_c;
+  //Covert time into format I want
+  // Parse loc.localtime to a Date object
+  const localtimeDate = new Date(loc.localtime.replace(" ", "T"));
+
+  // Format the date and time
+  const formattedDate = new Intl.DateTimeFormat("en-GB", {
+    day: "numeric",
+    month: "numeric",
+  }).format(localtimeDate);
+
+  const formattedTime = new Intl.DateTimeFormat("en-US", {
+    hour: "numeric",
+    minute: "numeric",
+    hour12: true,
+  }).format(localtimeDate);
+
+  const dayOfWeek = localtimeDate.toLocaleDateString("en-US", {
+    weekday: "long",
+  });
+
+  const formattedLocaltime = `${formattedDate} - ${dayOfWeek} - ${formattedTime}`;
+
+  const sunriseTime = forecast.forecastday[0].astro.sunrise;
+  const sunsetTime = forecast.forecastday[0].astro.sunset;
+  const sunrise = new Date(`2000-01-01 ${sunriseTime}`).toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
+  const sunset = new Date(`2000-01-01 ${sunsetTime}`).toLocaleTimeString([], {
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: true,
+  });
 
   return (
     <div className={css.weatherNow}>
-      <h2>
-        Location = {location.lat}, {location.lon}
-      </h2>
-      <h1>Temperature: {temperature}°C</h1>
-      <h3>Weather Condition: {weather[0].description}</h3>
-      <p>Date and Time</p>
-      <p>Sunrise {sunrise}</p>
-      <p>Sunset {sunset}</p>
+      <h2>{loc.name}</h2>
+      <h1>{temperature}°C</h1>
+      <h3>{current.condition.text}</h3>
+      <p>{formattedLocaltime}</p>
+      <p>Sunrise: {sunrise}</p>
+      <p>Sunset: {sunset}</p>
     </div>
   );
 }
