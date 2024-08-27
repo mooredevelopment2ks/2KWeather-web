@@ -1,1 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
+body{
+    background-image: linear-gradient(  225deg,  hsl(197deg 98% 80%) 0%,  hsl(197deg 98% 79%) 9%,  hsl(197deg 97% 78%) 18%,  hsl(197deg 97% 77%) 27%,  hsl(197deg 97% 76%) 36%,  hsl(197deg 96% 75%) 45%,  hsl(197deg 96% 74%) 55%,  hsl(197deg 96% 73%) 64%,  hsl(197deg 95% 72%) 73%,  hsl(197deg 95% 71%) 82%,  hsl(197deg 95% 70%) 91%,  hsl(197deg 95% 69%) 100%);
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.snowy{
+    background-image: linear-gradient(  225deg,  hsl(198deg 100% 86%) 0%,  hsl(198deg 100% 85%) 9%,  hsl(198deg 100% 85%) 18%,  hsl(198deg 100% 84%) 27%,  hsl(198deg 100% 83%) 36%,  hsl(198deg 100% 83%) 45%,  hsl(198deg 100% 82%) 55%,  hsl(198deg 100% 82%) 64%,  hsl(198deg 100% 81%) 73%,  hsl(198deg 100% 80%) 82%,  hsl(198deg 100% 80%) 91%,  hsl(198deg 100% 79%) 100%);
+}
+
+.stormy{
+    background-image: linear-gradient(  225deg,  hsl(0deg 0% 67%) 0%,  hsl(240deg 1% 65%) 9%,  hsl(240deg 2% 62%) 18%,  hsl(240deg 3% 60%) 27%,  hsl(240deg 3% 57%) 36%,  hsl(240deg 4% 55%) 45%,  hsl(240deg 4% 52%) 55%,  hsl(240deg 4% 50%) 64%,  hsl(240deg 5% 48%) 73%,  hsl(240deg 6% 45%) 82%,  hsl(240deg 6% 43%) 91%,  hsl(240deg 7% 41%) 100%);
+}
+
+.nighty{
+    background-image: linear-gradient(  180deg,  hsl(244deg 89% 4%) 0%,  hsl(243deg 79% 5%) 9%,  hsl(243deg 70% 7%) 18%,  hsl(243deg 62% 8%) 27%,  hsl(242deg 54% 10%) 36%,  hsl(242deg 48% 12%) 45%,  hsl(242deg 42% 15%) 55%,  hsl(241deg 36% 17%) 64%,  hsl(241deg 31% 19%) 73%,  hsl(241deg 26% 22%) 82%,  hsl(240deg 21% 25%) 91%,  hsl(240deg 17% 27%) 100%);
+}
