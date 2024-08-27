@@ -68,12 +68,12 @@ export default function WeatherNow({ location }) {
 
   return (
     <div className={css.weatherNow}>
-      <h2>{loc.name}</h2>
-      <h1>{temperature}°C</h1>
-      <h3>{current.condition.text}</h3>
-      <p>{formattedLocaltime}</p>
-      <p>Sunrise: {sunrise}</p>
-      <p>Sunset: {sunset}</p>
+      <h2 className={css.suburb}>{loc.name}</h2>
+      <h1 className={css.temperature}>{temperature}°C</h1>
+      <h3 className={css.weatherCondition}>{current.condition.text}</h3>
+      <p className={css.weatherData}>{formattedLocaltime}</p>
+      <p className={css.weatherData}>Sunrise: {sunrise}</p>
+      <p className={css.weatherData}>Sunset: {sunset}</p>
     </div>
   );
 }

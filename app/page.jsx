@@ -29,9 +29,6 @@ export default function Home() {
     <div>
       <div className="leftContainer">
         {/* Get rid of this h1 when the lat and long are used in API successfully */}
-        <h1>
-          {location.lat}, {location.lon}
-        </h1>
         <WeatherNow location={location} />
         <WeatherCard location={location} />
       </div>

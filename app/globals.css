@@ -1,7 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
 body{
-    background-image: linear-gradient(  225deg,  hsl(197deg 98% 80%) 0%,  hsl(197deg 98% 79%) 9%,  hsl(197deg 97% 78%) 18%,  hsl(197deg 97% 77%) 27%,  hsl(197deg 97% 76%) 36%,  hsl(197deg 96% 75%) 45%,  hsl(197deg 96% 74%) 55%,  hsl(197deg 96% 73%) 64%,  hsl(197deg 95% 72%) 73%,  hsl(197deg 95% 71%) 82%,  hsl(197deg 95% 70%) 91%,  hsl(197deg 95% 69%) 100%);
+    background: rgb(155,226,254);
+    background: radial-gradient(circle, rgba(155,226,254,1) 15%, rgba(103,209,251,1) 35%);
     font-family: "Nunito", sans-serif;
     font-optical-sizing: auto;
     font-style: normal;
