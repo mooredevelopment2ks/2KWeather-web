@@ -41,7 +41,7 @@ export default function WeatherCard({ location }) {
     <div className={css.card}>
       <div className={css.hourlyWeather}>
         {specificHours.map((hourData, index) => (
-          <div key={index}>
+          <div key={index} className={css.hourlyCard}>
             <img src={hourData.condition.icon} alt={hourData.condition.text} />
             <p>
               {new Date(hourData.time).toLocaleTimeString([], {
@@ -57,22 +57,22 @@ export default function WeatherCard({ location }) {
       <div className={css.weeklyWeather}>
         {dailyForecast.map((dayData, index) => (
           <p key={index}>
-            {new Date(dayData.date).toLocaleDateString([], { weekday: "long" })}{" "}
-            Humidity: {dayData.day.avghumidity}%{" "}
+            {new Date(dayData.date).toLocaleDateString([], {
+              weekday: "short",
+            })}{" "}
+            &nbsp; &nbsp; &nbsp; 💧% {dayData.day.avghumidity}% &nbsp; &nbsp;
+            &nbsp;
             <img
               src={dayData.day.condition.icon}
               alt={dayData.day.condition.text}
-            />{" "}
-            <img src={dayData.day.condition.icon} alt="Night icon" /> High Temp:{" "}
-            {dayData.day.maxtemp_c}°C Low Temp: {dayData.day.mintemp_c}°C
+            />
+            &nbsp; &nbsp;
+            <img src={dayData.day.condition.icon} alt="Night icon" />
+            &nbsp; &nbsp; &nbsp; High Temp:
+            {dayData.day.maxtemp_c}°C &nbsp; &nbsp; Low Temp:{" "}
+            {dayData.day.mintemp_c}°C
           </p>
         ))}
-        {/* <p>
-          Day - Humidity - Weather icon day - Weather icon night - High Temp -
-          Low Temp
-        </p> */}
-        {/* Vertical list of weather for the coming days of the week (scroll?) */}
-        {/* Format is: Day - Humidity - Weather icon(day) - Weather icon (night) - High Temp - Low Temp */}
       </div>
     </div>
   );

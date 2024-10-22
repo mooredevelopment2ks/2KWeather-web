@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import WeatherNow from "./components/weather-now";
 import WeatherCard from "./components/weather-card";
 import WeatherImage from "./components/weather-image";
+import css from "./page.module.css";
 
 export default function Home() {
   const [location, setLocation] = useState({ lat: null, lon: null });
@@ -26,13 +27,12 @@ export default function Home() {
   }, []);
 
   return (
-    <div>
-      <div className="leftContainer">
-        {/* Get rid of this h1 when the lat and long are used in API successfully */}
+    <div className={css.container}>
+      <div className={css.leftContainer}>
         <WeatherNow location={location} />
         <WeatherCard location={location} />
       </div>
-      <div className="rightContainer">
+      <div className={css.rightContainer}>
         <WeatherImage location={location} />
       </div>
     </div>
