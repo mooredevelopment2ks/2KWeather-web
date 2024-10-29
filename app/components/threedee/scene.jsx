@@ -5,7 +5,6 @@ import { Canvas } from "@react-three/fiber";
 import Model from "./model";
 import { Suspense } from "react";
 import { Center } from "@react-three/drei";
-// import css from "./scene.module.css";
 
 export default function Scene() {
   return (
