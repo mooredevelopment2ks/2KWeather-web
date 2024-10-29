@@ -68,9 +68,9 @@ export default function WeatherCard({ location }) {
             />
             &nbsp; &nbsp;
             <img src={dayData.day.condition.icon} alt="Night icon" />
-            &nbsp; &nbsp; &nbsp; High Temp:
-            {dayData.day.maxtemp_c}°C &nbsp; &nbsp; Low Temp:{" "}
-            {dayData.day.mintemp_c}°C
+            &nbsp; &nbsp; &nbsp; High:
+            {dayData.day.maxtemp_c}°C &nbsp; &nbsp; Low: {dayData.day.mintemp_c}
+            °C
           </p>
         ))}
       </div>
