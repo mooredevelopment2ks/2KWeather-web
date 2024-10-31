@@ -36,7 +36,9 @@ export default function WeatherCard({ weatherData }) {
                 hour12: true,
               })}
             </p>
-            <p className={`${css.hourlyTemps} ${textClass}`}>{hourData.temp_c}</p>
+            <p className={`${css.hourlyTemps} ${textClass}`}>
+              {hourData.temp_c}
+            </p>
           </div>
         ))}
       </div>
@@ -48,16 +50,25 @@ export default function WeatherCard({ weatherData }) {
                 weekday: "short",
               })}{" "}
             </span>
-            <span className={`${css.avghumidity} ${textClass}`}>{dayData.day.avghumidity}</span>
+            <span className={`${css.avghumidity} ${textClass}`}>
+              {dayData.day.avghumidity}
+            </span>
             <img
               src={dayData.day.condition.icon}
               alt={dayData.day.condition.text}
             />
-            <span className={`${css.tempRanges} ${textClass}`}>High: {dayData.day.maxtemp_c}</span>
-            <span className={`${css.tempRanges} ${textClass}`}>Low: {dayData.day.mintemp_c}</span>
+            <span className={`${css.tempRanges} ${textClass}`}>
+              High: {dayData.day.maxtemp_c}
+            </span>
+            <span className={`${css.tempRanges} ${textClass}`}>
+              Low: {dayData.day.mintemp_c}
+            </span>
           </div>
         ))}
       </div>
     </div>
   );
 }
+
+//TODO:
+//1. Add an image for night time

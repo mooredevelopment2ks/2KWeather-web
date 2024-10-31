@@ -4,20 +4,20 @@ import { Group } from "three";
 
 const defaultGLB = "/sunny.glb";
 const weatherToGLBMap = {
-  "sunny": "/sunny.glb",
-  "clear": "/clear-night.glb",
+  sunny: "/sunny.glb",
+  clear: "/clear-night.glb",
   "partly cloudy": "/cloudy-day.glb",
-  "cloudy": "/cloudy-day.glb",
-  "overcast": "/overcast-day.glb",
-  "mist": "/cloudy-day.glb",
+  cloudy: "/cloudy-day.glb",
+  overcast: "/overcast-day.glb",
+  mist: "/cloudy-day.glb",
   "patchy rain nearby": "/rain-day.glb",
   "patchy snow nearby": "/snow-day.glb",
   "patchy sleet nearby": "/snow-day.glb",
   "patchy freezing drizzle nearby": "/snow-day.glb",
   "thundery outbreaks in nearby": "/apocalypse-day.glb",
   "blowing snow": "/blizzard-day.glb",
-  "blizzard": "/blizzard-day.glb",
-  "fog": "/cloudy-day.glb",
+  blizzard: "/blizzard-day.glb",
+  fog: "/cloudy-day.glb",
   "freezing fog": "/cloudy-day.glb",
   "patchy light drizzle": "/rain-day.glb",
   "light drizzle": "/rain-day.glb",
@@ -57,7 +57,7 @@ const weatherToGLBMap = {
 
 export default function Model({ weatherData }) {
   const condition = weatherData.current.condition.text.toLowerCase();
-  const group = useRef<Group>(null);
+  const group = useRef < Group > null;
   const glbPath = weatherToGLBMap[condition] || defaultGLB;
   const { nodes, materials, animations, scene } = useGLTF(glbPath);
   return (
@@ -66,3 +66,7 @@ export default function Model({ weatherData }) {
     </group>
   );
 }
+
+//TODO:
+
+//1. Fix typo with GLB file names
