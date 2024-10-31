@@ -6,7 +6,7 @@ import Model from "./model";
 import { Suspense } from "react";
 import { Center } from "@react-three/drei";
 
-export default function Scene() {
+export default function Scene({ weatherData }) {
   return (
     <Canvas
       gl={{ antialias: true }}
@@ -22,7 +22,7 @@ export default function Scene() {
       <Suspense fallback={null}>
         <mesh scale={[5, 5, 5]}>
           <Center>
-            <Model />
+            <Model weatherData={weatherData} />
           </Center>
         </mesh>
       </Suspense>

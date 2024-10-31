@@ -5,10 +5,10 @@ const Scene = dynamic(() => import("./threedee/scene"), {
   ssr: false,
 });
 
-export default function WeatherImage() {
+export default function WeatherImage({ weatherData }) {
   return (
     <div className={css.canvas}>
-      <Scene />;
+      <Scene weatherData={weatherData} />
     </div>
-  );
+  )
 }

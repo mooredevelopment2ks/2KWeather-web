@@ -1,33 +1,19 @@
-import React, { useState, useEffect } from "react";
-import { fetchCurrentWeatherData } from "@/lib/weatherData";
 import css from "./weather-card.module.css";
 
-export default function WeatherCard({ location }) {
-  const [currentWeatherData, setCurrentWeatherData] = useState(null);
-
-  useEffect(() => {
-    if (location.lat && location.lon) {
-      fetchCurrentWeatherData(location.lat, location.lon)
-        .then((data) => {
-          console.log("Fetched data:", data);
-          setCurrentWeatherData(data);
-        })
-        .catch((error) =>
-          console.error("Failed to fetch current weather data", error)
-        );
-    }
-  }, [location]);
-
-  if (!currentWeatherData) {
+export default function WeatherCard({ weatherData }) {
+  if (!weatherData) {
     return <h1>Loading...</h1>;
   }
 
-  const { forecast } = currentWeatherData;
+  const { forecast, current } = weatherData;
 
-  if (!forecast) {
-    console.error("Incomplete data:", currentWeatherData); // Log incomplete data
+  if (!forecast || !current) {
+    console.error("Incomplete data:", weatherData); // Log incomplete data
     return <h1>Error: Incomplete data</h1>;
   }
+
+  const isDay = current.is_day;
+  const textClass = isDay !== 1 ? css.whiteText : "";
 
   const hourlyForecast = forecast.forecastday[0].hour;
   const dailyForecast = forecast.forecastday.slice(1, 3);
@@ -38,40 +24,38 @@ export default function WeatherCard({ location }) {
   });
 
   return (
-    <div className={css.card}>
+    <div className={`${css.card} ${textClass}`}>
       <div className={css.hourlyWeather}>
         {specificHours.map((hourData, index) => (
           <div key={index} className={css.hourlyCard}>
             <img src={hourData.condition.icon} alt={hourData.condition.text} />
-            <p>
+            <p className={textClass}>
               {new Date(hourData.time).toLocaleTimeString([], {
                 hour: "2-digit",
                 minute: "2-digit",
                 hour12: true,
               })}
             </p>
-            <p>{hourData.temp_c}°C</p>
+            <p className={`${css.hourlyTemps} ${textClass}`}>{hourData.temp_c}</p>
           </div>
         ))}
       </div>
       <div className={css.weeklyWeather}>
         {dailyForecast.map((dayData, index) => (
-          <p key={index}>
-            {new Date(dayData.date).toLocaleDateString([], {
-              weekday: "short",
-            })}{" "}
-            &nbsp; &nbsp; &nbsp; 💧% {dayData.day.avghumidity}% &nbsp; &nbsp;
-            &nbsp;
+          <div key={index}>
+            <span className={textClass}>
+              {new Date(dayData.date).toLocaleDateString([], {
+                weekday: "short",
+              })}{" "}
+            </span>
+            <span className={`${css.avghumidity} ${textClass}`}>{dayData.day.avghumidity}</span>
             <img
               src={dayData.day.condition.icon}
               alt={dayData.day.condition.text}
             />
-            &nbsp; &nbsp;
-            <img src={dayData.day.condition.icon} alt="Night icon" />
-            &nbsp; &nbsp; &nbsp; High:
-            {dayData.day.maxtemp_c}°C &nbsp; &nbsp; Low: {dayData.day.mintemp_c}
-            °C
-          </p>
+            <span className={`${css.tempRanges} ${textClass}`}>High: {dayData.day.maxtemp_c}</span>
+            <span className={`${css.tempRanges} ${textClass}`}>Low: {dayData.day.mintemp_c}</span>
+          </div>
         ))}
       </div>
     </div>

@@ -16,3 +16,20 @@
     justify-content: center;
     align-items: center;
 }
+
+.daytime{ 
+    background: rgb(155,226,254);
+    background: radial-gradient(circle, rgba(155,226,254,1) 15%, rgba(103,209,251,1) 35%);
+}
+/* .snowy{
+    background-image: linear-gradient(  225deg,  hsl(198deg 100% 86%) 0%,  hsl(198deg 100% 85%) 9%,  hsl(198deg 100% 85%) 18%,  hsl(198deg 100% 84%) 27%,  hsl(198deg 100% 83%) 36%,  hsl(198deg 100% 83%) 45%,  hsl(198deg 100% 82%) 55%,  hsl(198deg 100% 82%) 64%,  hsl(198deg 100% 81%) 73%,  hsl(198deg 100% 80%) 82%,  hsl(198deg 100% 80%) 91%,  hsl(198deg 100% 79%) 100%);
+}
+
+.stormy{
+    background-image: linear-gradient(  225deg,  hsl(0deg 0% 67%) 0%,  hsl(240deg 1% 65%) 9%,  hsl(240deg 2% 62%) 18%,  hsl(240deg 3% 60%) 27%,  hsl(240deg 3% 57%) 36%,  hsl(240deg 4% 55%) 45%,  hsl(240deg 4% 52%) 55%,  hsl(240deg 4% 50%) 64%,  hsl(240deg 5% 48%) 73%,  hsl(240deg 6% 45%) 82%,  hsl(240deg 6% 43%) 91%,  hsl(240deg 7% 41%) 100%);
+} */
+
+.nighttime {
+    background: rgb(0,0,102);
+    background: radial-gradient(circle, rgba(0,0,102,1) 15%, rgba(0,0,51,1) 35%);
+}
